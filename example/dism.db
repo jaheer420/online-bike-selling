@@ -1,0 +1,112 @@
+CREATE DATABASE shopping_db;
+USE shopping_db;
+
+-- Create products table
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_name VARCHAR(255) NOT NULL,
+    product_image VARCHAR(255),
+    price DECIMAL(10,2) NOT NULL
+);
+
+-- Create availability table (linked to products)
+CREATE TABLE availability (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    available_quantity INT NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- Create cart table (fury)
+CREATE TABLE fury (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    product_image VARCHAR(255),
+    price DECIMAL(10,2) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    total_price DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- Sample data for products
+INSERT INTO products (product_name, product_image, price) VALUES
+('Bike A', 'bike_a.jpg', 250.00),
+('Bike B', 'bike_b.jpg', 320.00),
+('Bike C', 'bike_c.jpg', 180.00);
+
+-- Sample data for availability
+INSERT INTO availability (product_id, available_quantity) VALUES
+(1, 10),
+(2, 15),
+(3, 5);
+  
+
+
+
+
+  USE shopping_db;
+
+-- Create the availability table
+CREATE TABLE availability (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    available_quantity INT NOT NULL,
+    available_price DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+
+
+SELECT o.name, o.email, o.product_name, o.quantity, o.total_price, 
+       a.available_quantity, a.available_price
+FROM orders o
+JOIN availability a ON o.product_id = a.product_id;
+
+
+
+USE shopping_db;
+
+INSERT INTO availability (product_id, available_quantity, available_price) VALUES
+(1, 50, 250.00),
+(2, 30, 320.00),
+(3, 20, 180.00);
+
+
+
+<?php
+// Database configuration
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "shopping_db";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Example product data
+$product_id = 1; // Change as needed
+$available_quantity = 50;
+$available_price = 250.00;
+
+// Insert data into availability table
+$sql = "INSERT INTO availability (product_id, available_quantity, available_price) 
+        VALUES ('$product_id', '$available_quantity', '$available_price')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "New availability record inserted successfully.";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+}
+
+// Close connection
+$conn->close();
+?>
+
+
+

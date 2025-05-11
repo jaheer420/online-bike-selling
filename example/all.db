@@ -1,0 +1,236 @@
+SHOW CREATE TABLE users;
+
+
+login
+
+CREATE TABLE `users` (
+  `username` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE
+);
+
+
+
+
+
+buy
+
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `address` text NOT NULL,
+  `product_name` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `total_price` decimal(10,2) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+
+
+Cart 
+
+
+CREATE DATABASE jungle;
+
+USE jungle;
+
+CREATE TABLE fury (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    product_image VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    total_price DECIMAL(10, 2) NOT NULL DEFAULT 0.00
+);
+
+-- Insert some sample bike products (total_price will be calculated later)
+INSERT INTO fury (product_id, product_name, product_image, price, quantity, total_price) VALUES
+(1, 'Bike A', 'https://example.com/bike1.jpg', 250.00, 1, 250.00),
+(2, 'Bike B', 'https://example.com/bike2.jpg', 320.00, 1, 320.00),
+(3, 'Bike C', 'https://example.com/bike3.jpg', 180.00, 1, 180.00),
+(4, 'Bike D', 'https://example.com/bike4.jpg', 450.00, 1, 450.00),
+(5, 'Bike E', 'https://example.com/bike5.jpg', 500.00, 1, 500.00),
+(6, 'Bike F', 'https://example.com/bike6.jpg', 275.00, 1, 275.00);
+
+
+
+contact
+
+
+
+CREATE DATABASE nostrabikes;
+
+USE nostrabikes;
+
+CREATE TABLE contact_messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    message TEXT NOT NULL,
+    submitted_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+   
+
+CREATE TABLE product (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    total_price DECIMAL(10,2) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    mobile VARCHAR(15) NOT NULL,
+    address TEXT NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    product_image VARCHAR(255) NULL,
+    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (product_id) REFERENCES fury(product_id) ON DELETE CASCADE
+);
+   
+
+
+
+
+   DROP TABLE IF EXISTS product;
+
+CREATE TABLE product (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    total_price DECIMAL(10,2) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    mobile VARCHAR(15) NOT NULL,
+    address TEXT NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    product_image VARCHAR(255) NULL,
+    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+) ENGINE=InnoDB;
+
+ALTER TABLE product ADD CONSTRAINT fk_product_name FOREIGN KEY (product_name) REFERENCES availability(product_name) ON DELETE CASCADE;
+
+
+
+CREATE TABLE availability (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL UNIQUE,
+    available_quantity INT NOT NULL
+) ENGINE=InnoDB;
+
+
+
+DELIMITER //
+
+CREATE TRIGGER update_availability_after_purchase
+AFTER INSERT ON product
+FOR EACH ROW
+BEGIN
+    UPDATE availability 
+    SET available_quantity = available_quantity - NEW.quantity
+    WHERE product_name = NEW.product_name;
+END;
+
+//
+
+DELIMITER ;
+         
+
+
+
+
+
+ 
+-- ✅ ADDED as per your requirement below ⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇
+
+-- ✅ Changed: jungle → br
+CREATE DATABASE br;
+
+USE br;
+
+-- ✅ Changed: fury → blist
+CREATE TABLE blist (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    product_image VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL DEFAULT 1,
+    total_price DECIMAL(10, 2) NOT NULL DEFAULT 0.00
+);
+
+-- ✅ Changed: product → bloods
+DROP TABLE IF EXISTS bloods;
+
+CREATE TABLE bloods (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    total_price DECIMAL(10,2) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    mobile VARCHAR(15) NOT NULL,
+    address TEXT NOT NULL,
+    state VARCHAR(100) NOT NULL,
+    product_image VARCHAR(255) NULL,
+    purchase_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- ✅ Foreign key now on bloods.product_name → availability.product_name
+ALTER TABLE bloods 
+ADD CONSTRAINT fk_bloods_name FOREIGN KEY (product_name) REFERENCES availability(product_name) ON DELETE CASCADE;
+
+-- ✅ Availability table remains the same (shared by bloods)
+CREATE TABLE availability (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    product_name VARCHAR(255) NOT NULL UNIQUE,
+    available_quantity INT NOT NULL
+) ENGINE=InnoDB;
+
+DELIMITER //
+
+-- ✅ New Trigger for bloods table
+CREATE TRIGGER update_availability_after_blood_purchase
+AFTER INSERT ON bloods
+FOR EACH ROW
+BEGIN
+    UPDATE availability 
+    SET available_quantity = available_quantity - NEW.quantity
+    WHERE product_name = NEW.product_name;
+END;
+//
+
+DELIMITER ;                      
+
+
+
+
+-- ✅ Switched to `br` database
+USE br;
+
+-- ✅ Insert into new table `blist` (instead of fury)
+INSERT INTO blist (product_id, product_name, product_image, price, quantity, total_price) VALUES
+(1, ' A+ve', 'bl.jpg', 250.00, 1, 250.00),
+(2, ' A-ve', 'bl.jpg', 250.00, 1, 250.00),
+(3, 'B+ve', 'bl.jpg', 180.00, 1, 180.00),
+(4, 'B-ve', 'bl.jpg, 150.00, 1, 150.00),
+(5, 'A1+ve', 'bl.jpg', 100.00, 1, 100.00),
+(6, 'O+ve', 'bl.jpg', 275.00, 1, 275.00),
+(7, 'A2B+ve', 'bl.jpg', 200.00, 1, 200.00),
+(8, 'A2B-ve', 'bl.jpg', 300.00, 1, 300.00);

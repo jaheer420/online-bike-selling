@@ -1,0 +1,121 @@
+*{
+    padding:0;
+    margin:0;
+}
+body{
+    font-family: 'poppins'sans-serif;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
+}
+.navbar-links{
+    display: flex;
+
+    column-gap: 20px;
+
+}
+.navbar-link a{
+    text-decoration: none;
+    
+    color: #1d232c;
+
+}
+.navbar-link a:hover{
+    text-decoration: underline;
+    color: #1d232c;
+
+}
+.navbar-menu-toggle{
+    display: none;
+
+}
+
+/*side navbar*/
+.side-navbar{
+    background-color: #1d232c;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -60%;
+    padding: 20px;
+    color: white;
+
+    transition: 2s;
+    
+}
+.side-navbar-link{
+    margin-bottom: 30px;
+
+}
+.side-navbar-links a{
+    text-decoration: none;
+    color: white;
+}
+.side-navbar-links a:hover{
+    text-decoration: underline;
+}
+
+
+
+
+
+.footer{
+    margin-top: 20px;
+    padding: 40px;
+    background-color: #1d232c;
+    color: #f2f4f7;
+}
+
+
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-top: 150px;
+            margin-left: 600px;
+            
+            
+
+
+         
+        }
+
+        .login-container h2 {
+            text-align: center;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+        }
+    

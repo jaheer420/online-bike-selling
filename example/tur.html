@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostra</title>
+    <!---google fonts-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!--my css-->
+<link rel="stylesheet" href="style.css">
+
+<!--font awesome-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<body>
+    <!--nav bar-->
+    <nav class="navbar">
+        <h1 >Nostra</h1>
+    
+    <div class="navbar-links">
+        <ul class="navbar-link  login">
+            <a href="lg.html">Login
+                <i class="fa-sharp fa-solid fa-caret-down"></i>
+
+            </a>
+            <ul class="drd">
+                <li>collection 1</li>
+                <li>collection 2</li>
+                <li>collection 3</li>
+
+            </ul>
+            </ul>
+        <ul class="navbar-link  home">
+            <a href="index.html ">Home
+                <i class="fa-sharp fa-solid fa-caret-down"></i>
+
+
+            </a>
+            <ul class="drd">
+                <li>collection 1</li>
+                <li>collection 2</li>
+                <li>collection 3</li>
+                </ul>
+
+        </ul>
+
+
+        <ul class="navbar-link  home">
+            <a href="index.html ">Category
+                <i class="fa-sharp fa-solid fa-caret-down"></i>
+
+
+            </a>
+            <ul class="drd">
+                <li> <a href="collection.html">Classic</a></li>
+                <li><a href="collection.html">turor</a></li>
+                <li><a href="collection.html">retro</a></li>
+                <li><a href="collection.html">Sports</a></li>
+                </ul>
+
+        </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
+        <p class="navbar-link"><a href="contact.html">Contact</a></p>
+    </div>
+        <div class="navbar-menu-toggle" onclick="showNavbar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+        <!--side navbar-->
+        <div class="side-navbar">
+            <p style="text-align: right;" onclick="closeNavbar()">
+                <i class="fa-solid fa-xmark"></i>
+
+            </p>
+        
+
+        <div class="side-navbar-links">
+            <p class="side-navbar-link"><a href="lg.html">Login</a></p>
+            <p class="side-navbar-link"><a href="index.html">Home</a></p>
+        <p class="side-navbar-link"><a href="collection.html">Collection</a></p>
+        <p class="side-navbar-link"><a href="contact.html">Contact</a></p>
+        </div>
+
+       </div>
+
+
+
+
+
+       <!--product-->
+       <div class="section">
+        <form class="psearch">
+            <input type="text" id="search" placeholder="search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </form>
+
+        <div class="products" id="products">
+            
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTe9VS93gQYu14Xq6_LsdN9rtA_lFM97rc0Zg&s" alt="">
+                <button onclick="document.location='lg2.html'">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button  class="cd" onclick="document.location='cn.html'">Cart Now <i class="fa-solid fa-arrow-right"></i></button>
+                <p>honda CB350</p>
+            </div>
+
+
+            
+
+
+            
+
+             
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuJIh4ibaV3Hty4DVKeo_ETHyWPEUR1MF_aA&s" alt="">
+                <button onclick="document.location='lg2.html'">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button  class="cd" onclick="document.location='cn.html'">Cart Now <i class="fa-solid fa-arrow-right"></i></button>
+                <p>royal enfield</p>
+            </div>
+
+
+
+
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSok3p91hWv1ULKr_u9ynU8qvdwg_GqneFMJg&s" alt="">
+                <button onclick="document.location='lg2.html'">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button  class="cd" onclick="document.location='cn.html'">Cart Now <i class="fa-solid fa-arrow-right"></i></button>
+                <p>classic 350</p>
+            </div>
+
+
+
+
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxsJ5VpA5vVWOkISrZGJB2_7RS8OB6rVY4kQ&s" alt="">
+                <button onclick="document.location='lg2.html'">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button  class="cd" onclick="document.location='cn.html'">Cart Now <i class="fa-solid fa-arrow-right"></i></button>
+                <p>hunter 350</p>
+            </div>
+
+
+
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ6KXurR9s1E5sjamcCzYeo63_FutWLfYuxQ&s" alt="">
+                <button onclick="document.location='lg2.html'">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button  class="cd" onclick="document.location='cn.html'">Cart Now <i class="fa-solid fa-arrow-right"></i></button>
+                <p>yedzi 350</p>
+            </div>
+
+
+
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIlnvFdB7vj5ewPdYybyRZskiK4OvhPoNf0w&s" alt="">
+                <button onclick="document.location='lg2.html'">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button  class="cd" onclick="document.location='cn.html'">Cart Now <i class="fa-solid fa-arrow-right"></i></button>
+                <p>adventure 350</p>
+            </div>
+
+
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpC7fqDvLu8LYysUIY2jzQhQHncsp-Ud4lLw&s" alt="">
+                <button onclick="document.location='lg2.html'">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button  class="cd" onclick="document.location='cn.html'">Cart Now <i class="fa-solid fa-arrow-right"></i></button>
+                <p>jawa 350</p>
+            </div>
+
+
+            <div class="box">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVX-SPo0Xj7kdg62na5oyY9q-SyYl42CUjhg&s" alt="">
+                <button onclick="document.location='lg2.html'">Shop Now <i class="fa-solid fa-arrow-right"></i></button>
+                <button  class="cd" onclick="document.location='cn.html'">Cart Now <i class="fa-solid fa-arrow-right"></i></button>
+                <p>java 42fj</p>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+       </div>
+
+
+
+
+
+
+
+
+
+
+<!--down-->
+
+<div class="footer">
+    <div class="fcontainer">
+
+        <div class="fcontainer">
+            <div class="bf">
+                <h2 class="txt">Bikes</h2>
+                <p>
+                    Satisfaction gaurantee
+                    A motorcycle is a two-wheeled vehicle with an engine. Motorcycles are bigger, heavier, and much faster than bicycles, but they have many similar parts. Like bicycles, motorcycles are often called bikes. Motorcycles are a common form of transportation throughout the world .HondaRS350
+                    No regrets at all BEAUTIFUL BIKE COMFORTABLE GOOD MILAGE AND MOREOVER BEST LOOKS and you will be amazed and thrilled with road presence amazing bike overall gives around 36 milage better than bullet 350 i </p>
+
+                    <div class="fci">
+                        <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                        <i class="fa-brands fa-twitter" style="color:#ffffff;"></i>
+                        <i class="fa-brands fa-facebook" style="color:#ffffff;"></i>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+    <p>@2024 Bikes.com</p>
+
+</div>
+
+
+
+
+    <script src="coll.js"></script>
+
+</body>
+</html> 

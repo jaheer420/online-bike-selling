@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Nostra Bikes</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+     <!---google fonts-->
+
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+ <!--my css-->
+ <link rel="stylesheet" href="st.css">
+ 
+ <!--font awesome-->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .contact-container {
+            width: 80%;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #2c3e50;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px 0;
+        }
+
+        .info-box {
+            text-align: center;
+        }
+
+        .info-box i {
+            font-size: 30px;
+            color: #e67e22;
+        }
+
+        .ratings {
+            margin: 20px 0;
+            font-size: 24px;
+            color: #f39c12;
+        }
+
+        .map-container {
+            margin: 20px 0;
+        }
+
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            margin: auto;
+        }
+
+        input, textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background: #e67e22;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #d35400;
+        }
+    </style>
+</head>
+<body>
+     <!--nav bar-->
+     <nav class="navbar">
+        <h1 >Nostra</h1>
+    
+    <div class="navbar-links">
+        <p class="navbar-link"><a href="lg.html">Login</a></p>
+        <p class="navbar-link"><a href="index.html">Home</a></p>
+        <p class="navbar-link"><a href="collection.html">Collection</a></p>
+        <p class="navbar-link"><a href="contact.html">Contact</a></p>
+    </div>
+        <div class="navbar-menu-toggle" onclick="showNavbar()">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </nav>
+        <!--side navbar-->
+        <div class="side-navbar">
+            <p style="text-align: right;" onclick="closeNavbar()">
+                <i class="fa-solid fa-xmark"></i>
+
+            </p>
+        
+
+        <div class="side-navbar-links">
+            <p class="side-navbar-link"><a href="lg.html"></a></p>
+            <p class="side-navbar-link"><a href="index.html">Home</a></p>
+        <p class="side-navbar-link"><a href="collection.html">Collection</a></p>
+        <p class="side-navbar-link"><a href="contact.html">Contact</a></p>
+        </div>
+
+       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="contact-container">
+        <h1>Contact Nostra Bikes</h1>
+
+        <div class="contact-info">
+            <div class="info-box">
+                <i class="fas fa-phone-alt"></i>
+                <p>+1 234 567 890</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-envelope"></i>
+                <p>support@nostrabikes.com</p>
+            </div>
+            <div class="info-box">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>123 Bike Street, New York, USA</p>
+            </div>
+        </div>
+
+        <!-- Star Ratings -->
+        <div class="ratings">
+            <h2>Customer Ratings</h2>
+            <p>⭐⭐⭐⭐⭐ (4.8/5)</p>
+        </div>
+
+        <!-- Google Map -->
+        <div class="map-container">
+            <h2>Our Location</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8354345093724!2d144.9537353156779!3d-37.81627974202181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11fd81%3A0xf5770c5268b7a99b!2sBike%20Store!5e0!3m2!1sen!2us!4v1637055245731" 
+            width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Get in Touch</h2>
+            
+
+            <form action="save_contact.php" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            
+        </div>
+    </div>   
+
+
+
+
+
+
+    
+       <!--down-->
+
+<div class="footer">
+    <div class="fcontainer">
+
+        <div class="fcontainer">
+            <div class="bf">
+                <h2 class="txt">Bikes</h2>
+                <p>
+                    Satisfaction gaurantee
+                    A motorcycle is a two-wheeled vehicle with an engine. Motorcycles are bigger, heavier, and much faster than bicycles, but they have many similar parts. Like bicycles, motorcycles are often called bikes. Motorcycles are a common form of transportation throughout the world .HondaRS350
+                    No regrets at all BEAUTIFUL BIKE COMFORTABLE GOOD MILAGE AND MOREOVER BEST LOOKS and you will be amazed and thrilled with road presence amazing bike overall gives around 36 milage better than bullet 350 i </p>
+
+                    <div class="fci">
+                        <i class="fa-brands fa-instagram" style="color: #ffffff;"></i>
+                        <i class="fa-brands fa-twitter" style="color:#ffffff;"></i>
+                        <i class="fa-brands fa-facebook" style="color:#ffffff;"></i>
+
+                    </div>
+            </div>
+        </div>
+    </div>
+    <p>@2024 Bikes.com</p>
+
+</div>
+
+
+
+
+    <script src="D:\index.js"></script>
+
+</body>
+</html>

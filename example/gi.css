@@ -1,0 +1,195 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f1f3f6;
+    color: #212121;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #2874f0;
+    color: #fff;
+}
+
+.navbar h1 {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.navbar-links ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links ul a {
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+}
+
+.navbar-links ul a:hover {
+    color: #ffeb3b;
+}
+
+.drd {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-link:hover .drd {
+    display: block;
+}
+
+/* Side Navbar */
+.side-navbar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+}
+
+.side-navbar.open {
+    left: 0;
+}
+
+.side-navbar-links p a {
+    display: block;
+    padding: 15px;
+    color: #212121;
+    text-decoration: none;
+}
+
+.side-navbar-links p a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.header-button {
+    padding: 10px 20px;
+    background-color: #2874f0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.header-button:hover {
+    background-color: #0d47a1;
+}
+
+/* Service Section */
+.service .container, .service .ontainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px 0;
+}
+
+.service div {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+/* Arrival & Most Wanted */
+.new, .ne {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.bcontainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.bcontainer img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.bcontainer button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    padding: 8px 12px;
+    background-color: #2874f0;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.bcontainer button:hover {
+    background-color: #0d47a1;
+}
+
+/* Footer */
+.footer {
+    background-color: #2874f0;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer .fci i {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.footer .fci i:hover {
+    color: #ffeb3b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-links ul {
+        flex-direction: column;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .header img {
+        margin-top: 20px;
+    }
+}
